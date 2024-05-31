@@ -2,12 +2,12 @@ import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Post } from '../utils/posts';
 import SuggestionCard from '../Cards/SuggestionCard';
 
-interface SearchBarProps {
+interface SuggestionProps {
   onSearch: (query: string) => void;
   posts: Post[];
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch, posts }) => {
+const Suggestion: React.FC<SuggestionProps> = ({ onSearch, posts }) => {
   const [input, setInput] = useState<string>('');
   const [suggestions, setSuggestions] = useState<Post[]>([]);
 
@@ -59,4 +59,4 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, posts }) => {
   );
 };
 
-export default SearchBar;
+export default Suggestion;
