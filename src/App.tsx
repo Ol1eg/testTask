@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import PostList from './components/PostList';
+import SearchBar from './components/SearchBar';
+import { Post, fetchPosts } from './utils/posts';
 
-function App() {
+
+const App: React.FC = () => {
+  const [posts, SetPosts] = useState<Post[]>([]);
+
+ useEffect(() => {
+  const fetchData = async () => {
+    const data = await fetchPosts();
+    SetPosts(data)
+  };
+  fetchData();
+ }, [])
+
+  const handleSearch = (input: string) => {
+    alert(`${input}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=' flex flex-col justify-center items-center'>
+      <SearchBar onSearch={handleSearch} posts={posts}/>
+      <PostList posts={posts}/>
     </div>
   );
-}
+};
 
 export default App;
+
