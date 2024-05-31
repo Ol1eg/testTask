@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PostList from './components/PostList';
-import SearchBar from './components/SearchBar';
+import Suggestion from './components/Suggestion';
 import { Post, fetchPosts } from './utils/posts';
 
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
   return (
     <div className=' flex flex-col justify-center items-center'>
-      <SearchBar onSearch={handleSearch} posts={posts}/>
+      <Suggestion onSearch={handleSearch} posts={posts}/>
       <PostList posts={posts}/>
     </div>
   );
