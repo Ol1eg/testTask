@@ -35,7 +35,6 @@ const PostList: React.FC<PostProps>=({  posts }) => {
                     nextLabel={'next'}
                     breakLabel={'...'}
                     pageCount={10}
-                    marginPagesDisplayed={Math.ceil(posts.length / postPerPage)}
                     pageRangeDisplayed={3}
                     onPageChange={handleClick}
                     containerClassName={'pagination'}
